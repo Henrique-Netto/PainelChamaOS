@@ -30,6 +30,23 @@ $licencasVencidas = $conn->query("
     FROM licencas 
     WHERE data_fim < CURDATE()
 ")->fetch_assoc()['total'];
+
+$clientesProximoVencimento = $conn->query("
+    SELECT 
+        c.id,
+        c.nome,
+        c.subdominio,
+        l.data_fim,
+        DATEDIFF(l.data_fim, CURDATE()) AS dias_restantes
+    FROM clientes c
+    INNER JOIN licencas l ON l.cliente_id = c.id
+    WHERE 
+        l.data_fim >= CURDATE()
+        AND l.data_fim <= DATE_ADD(CURDATE(), INTERVAL 7 DAY)
+        AND c.status = 'ativo'
+    ORDER BY l.data_fim ASC
+");
+
 ?>
 
 
@@ -86,21 +103,60 @@ $licencasVencidas = $conn->query("
             </div>
         </div>
 
-        <!-- BLOCO FUTURO -->
+        <!-- CLIENTES PRÓXIMOS DE VENCER -->
         <div class="row mt-5">
             <div class="col">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm border-warning">
                     <div class="card-body">
-                        <h5 class="mb-3">Próximos passos</h5>
-                        <ul class="mb-0">
-                            <li>Clientes vencendo nos próximos dias</li>
-                            <li>Integração com Mercado Pago</li>
-                            <li>Relatórios de acesso</li>
-                        </ul>
+                        <h5 class="mb-3 text-warning">
+                            <i class="bi bi-exclamation-triangle"></i>
+                            Licenças próximas do vencimento
+                        </h5>
+
+                        <?php if ($clientesProximoVencimento->num_rows > 0): ?>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Cliente</th>
+                                            <th>Subdomínio</th>
+                                            <th>Vencimento</th>
+                                            <th>Dias Restantes</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($c = $clientesProximoVencimento->fetch_assoc()): ?>
+                                            <tr>
+                                                <td><?= htmlspecialchars($c['nome']) ?></td>
+                                                <td><?= $c['subdominio'] ?>.chamaos.com</td>
+                                                <td><?= date('d/m/Y', strtotime($c['data_fim'])) ?></td>
+                                                <td>
+                                                    <span class="badge bg-warning text-dark">
+                                                        <?= $c['dias_restantes'] ?> dias
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <a href="cliente/form.php?id=<?= $c['id'] ?>"
+                                                        class="btn btn-sm btn-outline-primary">
+                                                        Ver cliente
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <?php else: ?>
+                            <div class="alert alert-success mb-0">
+                                Nenhuma licença próxima do vencimento 🎉
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
