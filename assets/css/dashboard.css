@@ -1,0 +1,52 @@
+.dashboard-container {
+    padding: 30px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+}
+
+.dashboard-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.dashboard-subtitle {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+/* Cards */
+.card-dashboard {
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    min-height: 120px;
+}
+
+.card-dashboard .card-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.card-dashboard h3 {
+    font-size: 2.2rem;
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+/* Variações */
+.card-primary {
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+}
+
+.card-success {
+    background: linear-gradient(135deg, #198754, #157347);
+}
+
+.card-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #212529;
+}
+
+.card-danger {
+    background: linear-gradient(135deg, #dc3545, #bb2d3b);
+}
