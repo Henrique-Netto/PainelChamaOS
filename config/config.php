@@ -5,4 +5,4 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Base do sistema
-define('BASE_URL', '/painelchamaos');
+define('BASE_URL', '/PainelChamaOS');

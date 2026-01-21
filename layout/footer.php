@@ -1,6 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- JS layout -->
-<script src="/painelchamaos/layout/assets/js/layout.js"></script>
+<script src="/PainelChamaOS/layout/assets/js/layout.js"></script>
 
 </body>
 
