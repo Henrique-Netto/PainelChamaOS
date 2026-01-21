@@ -56,11 +56,13 @@ $clientes = $conn->query("
                                     <a href="form.php?id=<?= $c['id'] ?>" class="btn btn-sm btn-warning">
                                         Editar
                                     </a>
-                                    <a href="controller/excluir-cliente.php?id=<?= $c['id'] ?>"
-                                        class="btn btn-sm btn-danger"
-                                        onclick="return confirm('Excluir este cliente?')">
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-danger btn-excluir-cliente"
+                                        data-id="<?= $c['id'] ?>"
+                                        data-nome="<?= htmlspecialchars($c['nome']) ?>">
                                         Excluir
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -71,4 +73,39 @@ $clientes = $conn->query("
     </div>
 </div>
 
+
 <?php include __DIR__ . '/../layout/footer.php'; ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        document.querySelectorAll('.btn-excluir-cliente').forEach(btn => {
+
+            btn.addEventListener('click', function() {
+
+                const clienteId = this.dataset.id;
+                const clienteNome = this.dataset.nome;
+
+                Swal.fire({
+                    title: 'Tem certeza?',
+                    html: `Deseja realmente excluir o cliente <strong>${clienteNome}</strong>?<br>Essa ação não pode ser desfeita.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Sim, excluir',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+                        window.location.href = `/PainelChamaOS/clientes/controller/excluir-cliente.php?id=${clienteId}`;
+                    }
+
+                });
+
+            });
+
+        });
+
+    });
+</script>

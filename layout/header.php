@@ -1,4 +1,8 @@
-<?php require_once __DIR__ . '/../config/config.php'; ?>
+<?php
+require_once __DIR__ . '/../config/config.php'; 
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

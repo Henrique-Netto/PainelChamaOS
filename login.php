@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="text-center mb-4">
                     <small class="text-muted d-block">
-                        Acesso ao <strong>Painel Administrativo do ChamaOS</strong>
+                        Acesso restrito ao <strong>Painel Administrativo do ChamaOS</strong>
                     </small>
                 </div>
 
@@ -87,12 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         Entrar
                     </button>
                 </form>
-
-                <div class="text-center mt-2">
-                    <small class="text-secondary">
-                        Este acesso é restrito ao <strong>Painel do Sistema ChamaOS</strong>.
-                    </small>
-                </div>
             </div>
         </div>
     </div>

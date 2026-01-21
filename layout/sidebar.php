@@ -1,10 +1,20 @@
 <body>
-<header class="topbar">
-    <button class="menu-toggle" onclick="toggleMenu()">
-        <i class="bi bi-list"></i>
-    </button>
+<header class="topbar d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-3">
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="bi bi-list"></i>
+        </button>
 
-    <span class="topbar-title">Painel ChamaOS</span>
+        <span class="topbar-title">Painel ChamaOS</span>
+    </div>
+
+    <!-- Usuário logado -->
+    <div class="dropdown">
+        <i class="bi bi-person-circle fs-5"></i>
+        <span class="fw-semibold">
+            <?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?>
+        </span>
+    </div>
 </header>
 
 <div class="sidebar" id="sidebar">
