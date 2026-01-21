@@ -34,6 +34,25 @@ CREATE TABLE licencas (
 );
 
 
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+usuario master com senha 123
+
+INSERT INTO usuarios (nome, usuario, senha)
+VALUES (
+    'Administrador',
+    'master',
+    '$2y$10$g7W7QEa5tkLAo3Ds16nSlu8Vp2YEqH8SUHxedZ.5jyCc1DYefqBua'
+);
+
+
+
 CREATE TABLE logs_validacao (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT,

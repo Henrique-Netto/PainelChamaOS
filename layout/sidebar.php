@@ -1,3 +1,12 @@
+<body>
+<header class="topbar">
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <span class="topbar-title">Painel ChamaOS</span>
+</header>
+
 <div class="sidebar" id="sidebar">
     <ul class="menu">
         <li>
