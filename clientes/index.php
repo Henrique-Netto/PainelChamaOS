@@ -14,7 +14,7 @@ $clientes = $conn->query("
 ?>
 
 <div class="main-content">
-    <div class="container-fluid">
+    <div class="bg-light rounded p-4">
         <div class="d-flex justify-content-between mb-3">
             <h3>Clientes</h3>
             <a href="form.php" class="btn btn-primary">

@@ -14,7 +14,7 @@ if ($id) {
 ?>
 
 <div class="main-content">
-    <div class="container-fluid">
+    <div class="bg-light rounded p-4">
         <h3><?= $id ? 'Editar Cliente' : 'Novo Cliente' ?></h3>
 
         <form method="post" action="controller/salvar-cliente.php">

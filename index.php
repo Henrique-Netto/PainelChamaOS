@@ -136,7 +136,7 @@ $clientesProximoVencimento = $conn->query("
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    <a href="cliente/form.php?id=<?= $c['id'] ?>"
+                                                    <a href="clientes/form.php?id=<?= $c['id'] ?>"
                                                         class="btn btn-sm btn-outline-primary">
                                                         Ver cliente
                                                     </a>
