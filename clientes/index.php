@@ -39,7 +39,7 @@ $clientes = $conn->query("
                         <?php while ($c = $clientes->fetch_assoc()): ?>
                             <tr>
                                 <td><?= htmlspecialchars($c['nome']) ?></td>
-                                <td><?= $c['subdominio'] ?></td>
+                                <td><?= $c['subdominio'] ?>.chamaos.com</td>
                                 <td>
                                     <span class="badge bg-<?= $c['status'] == 'ativo' ? 'success' : 'secondary' ?>">
                                         <?= ucfirst($c['status']) ?>

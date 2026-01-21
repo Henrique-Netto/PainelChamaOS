@@ -128,7 +128,7 @@ $clientesProximoVencimento = $conn->query("
                                         <?php while ($c = $clientesProximoVencimento->fetch_assoc()): ?>
                                             <tr>
                                                 <td><?= htmlspecialchars($c['nome']) ?></td>
-                                                <td><?= $c['subdominio'] ?>chamaos.com</td>
+                                                <td><?= $c['subdominio'] ?>.chamaos.com</td>
                                                 <td><?= date('d/m/Y', strtotime($c['data_fim'])) ?></td>
                                                 <td>
                                                     <span class="badge bg-warning text-dark">
