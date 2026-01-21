@@ -49,9 +49,8 @@ $clientesProximoVencimento = $conn->query("
 
 ?>
 
-
 <div class="main-content">
-    <div class="container-fluid dashboard-container">
+    <div class="bg-light rounded p-4">
         <div class="row mb-4">
             <div class="col">
                 <h2 class="dashboard-title">Painel ChamaOS</h2>
@@ -129,7 +128,7 @@ $clientesProximoVencimento = $conn->query("
                                         <?php while ($c = $clientesProximoVencimento->fetch_assoc()): ?>
                                             <tr>
                                                 <td><?= htmlspecialchars($c['nome']) ?></td>
-                                                <td><?= $c['subdominio'] ?>.chamaos.com</td>
+                                                <td><?= $c['subdominio'] ?>chamaos.com</td>
                                                 <td><?= date('d/m/Y', strtotime($c['data_fim'])) ?></td>
                                                 <td>
                                                     <span class="badge bg-warning text-dark">
@@ -159,6 +158,5 @@ $clientesProximoVencimento = $conn->query("
 
     </div>
 </div>
-
 
 <?php include __DIR__ . '/layout/footer.php'; ?>

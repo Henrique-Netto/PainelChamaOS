@@ -1,12 +1,30 @@
+:root {
+    --primary: #009CFF;
+    --primary-2: #D9EEFF;
+    --primary-hover: #007bff;
+    --secondary: #414c57;
+    --secondary-2: #979da3;
+    --secondary-hover: #5a6268;
+    --light: #fff;
+    --dark: #191C24;
+    --font: #414c57;
+    --hover: #d9e7f74f;
+    --border: #e6e8eb;
+}
+
 body {
-    background-color: #f4f6f8;
+    background-color: #F3F6F9;
+}
+
+/*** Layout - faz o fundo branco dentro das telas ***/
+.bg-light {
+    background: var(--light) !important;
 }
 
 /* ===== SIDEBAR ===== */
 .sidebar {
     width: 220px;
-    background: #0f172a;
-    color: #fff;
+    background: var(--light);
     position: fixed;
     top: 56px;
     left: 0;
@@ -15,6 +33,7 @@ body {
     flex-direction: column;
     transition: transform 0.3s ease;
     z-index: 1000;
+    border-right: 1px solid var(--border);
 }
 
 /* Desktop: sidebar recolhida */
@@ -26,7 +45,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     padding: 16px;
-    border-bottom: 1px solid #343a40;
+    border-bottom: 1px solid var(--border);
 }
 
 .sidebar .menu {
@@ -42,21 +61,22 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #adb5bd;
+    background: var(--light);
     padding: 12px 20px;
     text-decoration: none;
+    color: var(--font);
 }
 
 .sidebar .menu li a:hover {
-    background: #343a40;
-    color: #fff;
+    background: #fff;
+    color: var(--primary);
 }
 
 /* ===== TOPBAR ===== */
 .topbar {
     height: 56px;
-    background: #0f172a;
-    color: #fff;
+    background: #fff;
+    color: var(--font);
     display: flex;
     align-items: center;
     padding: 0 16px;
@@ -65,12 +85,13 @@ body {
     left: 0;
     right: 0;
     z-index: 1100;
+    border-bottom: 1px solid var(--border);
 }
 
 .menu-toggle {
     background: none;
     border: none;
-    color: #fff;
+    color: var(--font);
     font-size: 26px;
     margin-right: 12px;
     cursor: pointer;
